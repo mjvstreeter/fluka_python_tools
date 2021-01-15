@@ -63,7 +63,10 @@ def get_particle_data(data_array_file,species_list = [3,4,7],
                 from_select = [5], to_select = None,
                 z_lims = None, pz_lims = [0,None]):
     
-    data_array  = load_object(data_array_file)
+    d_obj  = load_object(data_array_file)
+    data_array=d_obj['data_array']
+    N_files=d_obj['N_files']
+
     p_list = []
     for s in species_list:
         p_sel = data_array.astype(int)[:,2]==int(s)
@@ -97,7 +100,7 @@ def get_particle_data(data_array_file,species_list = [3,4,7],
             p_sel = p_sel*f_sel
 
         p_list.append(data_array[p_sel>0,:])
-    return p_list
+    return p_list, N_files
 
 def get_primary_energy(inp_file_path):
     with open(inp_file_path, "r") as f:
