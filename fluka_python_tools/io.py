@@ -46,7 +46,7 @@ def load_geometry_elements(file_path):
         if line.startswith('END'):
             geo_flag = False
         if geo_flag:
-            if line.startswith(('SPH','RPP','XYP')):
+            if line.startswith(('SPH','RPP','XYP','RCC')):
                 geo_lines.append(line)
             
         if line.startswith('GEOBEGIN'):
