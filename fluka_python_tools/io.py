@@ -86,7 +86,7 @@ def get_particle_data(data_array_file,species_list = [3,4,7],
 
         if to_select is not None:
             f_sel = p_sel*0.0
-            for f in from_select:
+            for f in to_select:
                 f_sel += data_array.astype(int)[:,1]==int(f)
             p_sel = p_sel*f_sel
 
