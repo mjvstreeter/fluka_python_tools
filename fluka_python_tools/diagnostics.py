@@ -172,7 +172,7 @@ def get_part_dist_div_mrad(p_data,p_sel):
         N_p = np.shape(p_data)[0]
         p_sel = np.ones(N_p)>0
     px_dash = np.arctan2(p_data[p_sel,8],p_data[p_sel,10])
-    py_dash = np.arctan2(p_data[p_sel,9]/p_data[p_sel,10])
+    py_dash = np.arctan2(p_data[p_sel,9],p_data[p_sel,10])
     source_mrad = np.array([np.std(px_dash)*1e3,np.std(py_dash)*1e3 ])
     return source_mrad
 
