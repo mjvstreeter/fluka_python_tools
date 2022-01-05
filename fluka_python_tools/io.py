@@ -71,9 +71,12 @@ def get_particle_data(data_array_file,species_list = [3,4,7],
         d_obj  = load_object(data_array_file)
     except:
         d_obj  = load_object5(data_array_file)
-    data_array=d_obj['data_array']
-    N_files=d_obj['N_files']
-
+    try:
+        data_array=d_obj['data_array']
+        N_files=d_obj['N_files']
+    except:
+        data_array = d_obj
+        N_files = -1
     p_list = []
     for s in species_list:
         p_sel = data_array.astype(int)[:,2]==int(s)
