@@ -2,11 +2,11 @@ import numpy as np
 from scipy.constants import m_e, e, c, pi
 import re
 from physics_tools.general_tools import load_object
-import pickle5
+# import pickle5
 
-def load_object5(filename):
-    with open(filename, 'rb') as fid:
-        return pickle5.load(fid)
+# def load_object5(filename):
+#     with open(filename, 'rb') as fid:
+#         return pickle5.load(fid)
 
 def read_usrbin_dat(file_path):
 
@@ -67,10 +67,10 @@ def load_geometry_elements(file_path):
 def get_particle_data(data_array_file,species_list = [3,4,7],
                 from_select = [5], to_select = None,
                 z_lims = None, pz_lims = [0,None]):
-    try:
-        d_obj  = load_object(data_array_file)
-    except:
-        d_obj  = load_object5(data_array_file)
+    # try:
+    d_obj  = load_object(data_array_file)
+    # except:
+        # d_obj  = load_object5(data_array_file)
     try:
         data_array=d_obj['data_array']
         N_files=d_obj['N_files']
